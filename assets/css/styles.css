@@ -92,11 +92,11 @@ nav {
 }
 
 .nav__link--anchor:hover {
-    color: #146C94;
+    color: #19A7CE;
 }
 
 .nav__link--anchor:active {
-    color: #19A7CE;
+    color: #146C94;
 }
 
 /*
@@ -153,6 +153,17 @@ nav {
 
 }
 
+.books__landing--title {
+    font-size: 32px;
+}
+
+.books_select {
+    padding: 8px 12px;
+    margin-right: 24px;
+    border: none;
+    font-size: 16px;
+}
+
 .books__list {
     display: flex;
     flex-wrap: wrap;
@@ -161,8 +172,14 @@ nav {
 .book__wrapper {
     width: 25%;
     padding: 16px 24px;
+    max-height: 420px;
+    overflow: hidden;
+}
+
+.book {
     overflow: hidden;
     position: relative;
+    min-height: 80%;
 }
 
 .book__overlay {
@@ -178,31 +195,39 @@ nav {
 
 .book__img--wrapper {
     display: flex;
-    position: relative;
+    overflow: hidden;
+    max-height: 378px;
 }
 
 .book__title {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 100%);
     text-align: center;
     font-size: 28px;
     line-height: 1.5;
-    opacity: 1;
+    opacity: 0;
+    transition: opacity 300ms, transform 450ms ease;
+    color: #F6F1F1;
+    z-index: 2;
+}
+
+.book__img {
     transition: all 300ms ease;
 }
 
-.book__img--wrapper:hover .book__overlay {
+.book:hover .book__overlay {
     opacity: 1;
+    z-index: 1;
 }
 
-.book__img--wrapper:hover .book__title {
-    opacity: 0;
+.book:hover .book__title {
+    opacity: 1;
+    transform: translate(-50%, -50%);
 }
 
-.book__img--wrapper:hover .book__img {
+.book:hover .book__img {
     transform: scale(1.1);
 }
 
-.book
