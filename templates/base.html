@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    {% block head %}
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        {% block styles %}
+            <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+        {% endblock %}
+        <title>
+            {% block title %}
+                LibroHub
+            {% endblock %}
+        </title>
+        {% block scripts %}
+        {% endblock %}
+    {% endblock %}
+</head>
+<body>
+{% block content %}
+    {% block nav %}
+        <div class="row">
+            <nav>
+
+                <figure class="nav__logo--wrapper">
+                    <img src="{{ url_for('static', filename='img/logo.png') }}" alt="" class="nav__logo">
+                </figure>
+                <ul class="nav__links">
+                    <li class="nav__link"><a href="" class="nav__link--anchor">Home</a></li>
+                    <li class="nav__link"><a href="" class="nav__link--anchor">Books</a></li>
+                    <li class="nav__link"><a href="" class="nav__link--anchor">Contact</a></li>
+                </ul>
+
+            </nav>
+        </div>
+    {% endblock %}
+
+    {% block footer %}
+    {% endblock %}
+{% endblock %}
+</body>
+</html>

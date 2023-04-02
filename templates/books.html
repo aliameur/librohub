@@ -1,40 +1,31 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>LibroHub</title>
-    <link rel="stylesheet" href="./styles.css">
-    <script src="./books.js" defer></script>
-</head>
-<body>
+{% extends "base.html" %}
+{% block scripts %}
+    <script src="{{ url_for('static', filename='js/books.js') }}" defer></script>
+{% endblock %}
+{% block content %}
 
-<section id="books__landing">
-    <div class="row">
-        <nav>
+    <section id="books__landing">
 
-            <figure class="nav__logo--wrapper">
-                <img src="./assets/logo.png" alt="" class="nav__logo">
-            </figure>
-            <ul class="nav__links">
-                <li class="nav__link"><a href="" class="nav__link--anchor">Home</a></li>
-                <li class="nav__link"><a href="" class="nav__link--anchor">Books</a></li>
-                <li class="nav__link"><a href="" class="nav__link--anchor">Contact</a></li>
-            </ul>
+        {% block nav %}
+            {{ super() }}
+        {% endblock %}
 
-        </nav>
-        <div class="container">
-            <div class="books__landing--description">
-                <h2 class="books__landing--title">Explore <span class="blue">Books</span></h2>
-                <select placeholder="Sort" name="" id="" class="books_select">
-                    <option value="ALPHABETICAL">Alphabetical</option>
-                </select>
+        <div class="row">
+            <div class="container">
+                <div class="books__landing--description">
+                    <h2 class="books__landing--title">Explore <span class="blue">Books</span></h2>
+                    <select name="" id="" class="books_select">
+                        <option value="Sort" disabled></option>
+                        <option value="ALPHABETICAL">Alphabetical</option>
+                    </select>
+                </div>
             </div>
+            <div class="books__list"></div>
         </div>
-        <div class="books__list"></div>
-    </div>
-</section>
-</body>
-</html>
+    </section>
+
+    {% block footer %}
+        {{ super() }}
+    {% endblock %}
+
+{% endblock %}
