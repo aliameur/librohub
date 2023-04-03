@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 {% block scripts %}
+    {{ super() }}
+    <script>
+        let bookBaseURL = {{ book_base_url }};
+    </script>
     <script src="{{ url_for('static', filename='js/books.js') }}" defer></script>
 {% endblock %}
 {% block content %}
@@ -14,13 +18,18 @@
             <div class="container">
                 <div class="books__landing--description">
                     <h2 class="books__landing--title">Explore <span class="blue">Books</span></h2>
-                    <select name="" id="" class="books_select">
-                        <option value="Sort" disabled></option>
-                        <option value="ALPHABETICAL">Alphabetical</option>
+                    <select name="" id="" class="books_select" onchange="onSelect(event)">
+                        <option value="Sort" disabled selected>Sort</option>
+                        <option value="ID_ASCENDING">ID, Ascending</option>
+                        <option value="ID_DESCENDING">ID, Descending</option>
+                        <option value="DOWNLOAD_COUNT">Download Count</option>
                     </select>
+                    {# add slider for author year #}
                 </div>
             </div>
-            <div class="books__list"></div>
+            <div class="books__list books__loading">
+                <i class="fas fa-spinner books__loading--spinner"></i>
+            </div>
         </div>
     </section>
 

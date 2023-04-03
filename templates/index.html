@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block scripts %}
-    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+    {{ super() }}
+    <script src="{{ url_for('static', filename='js/index.js') }}" defer></script>
 {% endblock %}
 {% block content %}
 
@@ -18,8 +19,8 @@
                         <h2 class="landing__sub-title">Your <span class="blue">Gateway</span> to a World of Free Books
                         </h2>
                         <div class="landing__search">
-                            <form>
-                                <input name="search" type="text" placeholder="Book title">
+                            <form id="search-form">
+                                <input id="search-input" name="search" type="text" placeholder="Book title">
                             </form>
                         </div>
                         <p class="landing__para">Discover thousands of <span class="blue">free eBooks</span> from

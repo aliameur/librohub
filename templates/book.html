@@ -1,44 +1,37 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>LibroHub</title>
-</head>
-<body>
-<section id="book__landing">
-    <div class="row">
-        <nav>
+{% extends "base.html" %}
 
-            <figure class="nav__logo--wrapper">
-                <img src="./assets/logo.png" alt="" class="nav__logo">
-            </figure>
-            <ul class="nav__links">
-                <li class="nav__link"><a href="" class="nav__link--anchor">Home</a></li>
-                <li class="nav__link"><a href="" class="nav__link--anchor">Books</a></li>
-                <li class="nav__link"><a href="" class="nav__link--anchor">Contact</a></li>
-            </ul>
+{% block scripts %}
+    {{ super() }}
+    <script src="{{ url_for('static', filename='js/book.js') }}"></script>
+{% endblock %}
 
-        </nav>
-        <header>
-            <div class="container">
-                <div class="landing__wrapper">
-                    <h1 class="landing__title">Welcome to <span class="blue">LibroHub</span></h1>
-                    <h2 class="landing__sub-title">Your <span class="blue">Gateway</span> to a World of Free Books</h2>
-                    <div class="landing__search">
-                        <form>
-                            <input name="search" type="text" placeholder="Book title">
-                        </form>
+{% block content %}
+    <section class="landing__book">
+    {% block nav %}
+        {{ super() }}
+    {% endblock %}
+        <div class="container">
+            <div class="row">
+                <div class="book__big-wrapper">
+                    <figure class="book__big-img--wrapper">
+                        <img src="" alt="" class="book__img">
+                    </figure>
+                    <div class="book__description">
+                        <h2 class="book__heading">Title asdfasdfasdfasdf</h2>
+                        <h3 class="book__author">Author</h3>
+                        <h3 class="book__options--title">Downloads</h3>
+                        <ul class="book__options">
+                            <li class="book__option">option 1</li>
+                            <li class="book__option">option 2</li>
+                            <li class="book__option">option 3</li>
+                        </ul>
                     </div>
-                    <p class="landing__para">Discover thousands of <span class="blue">free eBooks</span> from classic literature to modern
-                        masterpieces</p>
                 </div>
             </div>
+        </div>
+    </section>
 
-        </header>
-    </div>
-</section>
-</body>
-</html>
+    {% block footer %}
+        {{ super() }}
+    {% endblock %}
+{% endblock %}

@@ -162,6 +162,7 @@ nav {
     margin-right: 24px;
     border: none;
     font-size: 16px;
+    /*border-radius: 20px;*/
 }
 
 .books__list {
@@ -231,3 +232,96 @@ nav {
     transform: scale(1.1);
 }
 
+.books__loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 60px;
+  font-size: 60px;
+  color: #19A7CE;
+}
+
+.books__loading--spinner {
+  display: none !important;
+}
+
+.books__loading .books__loading--spinner {
+  display: block !important;
+}
+
+.fa-spinner {
+  animation: rotate 600ms infinite linear;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/*
+
+    BOOKS
+
+*/
+
+.book__big-wrapper {
+    display: flex;
+}
+
+.book__description {
+    width: 50%;
+    padding: 40px 40px 40px 20px;
+}
+
+.book__big-img--wrapper {
+    width: 50%;
+    display: flex;
+    overflow: hidden;
+    padding: 40px 20px 40px 40px;
+}
+
+.book__heading {
+    margin-bottom: 16px;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.book__author {
+    font-size: 24px;
+}
+
+.book__options--title {
+    margin-top: 24px;
+}
+
+.book__options {
+    margin-top: 16px;
+}
+
+.book__option {
+    margin-top: 8px;
+    color: black;
+    font-weight: 500;
+    transition: all 300ms ease;
+}
+
+.book__option:hover {
+    color: #19A7CE;
+}
+
+.book__option:active {
+    color: #146C94;
+}
+
+#landing__book {
+    min-height: 100vh;
+}
+
+.book__img {
+    max-width: 400px;
+}
